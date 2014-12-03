@@ -1,15 +1,16 @@
 \version "2.18.2"
 
 % The instrument should be defined here:
-tuning = #'("a," "e" "a" "d'" "g'" "b'" "e''")
+tuning = #'("e," "a," "d" "g" "b" "e'")
 frets = 24
+
 #(load "cheatsheets-fns.scm")
 
 notes = #(get-notes tuning frets)
 staff-music = #(generate-staff-music notes)
 tab-staff = #(generate-tab-staff notes tuning)
 
-offset = 2
+offset = 3
 #(define (extract-note-name str)
    (let* ((lst (string->list str))
           (hd (take-while char-alphabetic? lst)))
@@ -39,15 +40,19 @@ offset = 2
 <<
   \new Staff {
     <<
+      % Clef should be selected here
+      % Guitars normally use treble_8
+      \clef "treble_8"
       \staff-music
       \context NoteNames {
         \set printOctaveNames = ##t
+        % If you want to use lilypond notation for note names
+        % Comment out the next line
         \override NoteName.stencil = \note-name-stencil
         \staff-music
       }
       % Removes bar numbers
       \override Score.BarNumber.break-visibility = ##(#f #f #f)
-      \clef "treble"
     >>
   }
   \tab-staff

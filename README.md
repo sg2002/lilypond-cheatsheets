@@ -5,7 +5,7 @@ This a script for [LilyPond](http://www.lilypond.org/) that generates cheatsheet
 
 You can specify a tuning and the number of frets for your instrument.
 
-[See the example](https://github.com/sg2002/lilypond-cheatsheets/blob/master/guitar-standard.pdf) for 24 fret guitar in standard tuning.
+[See the example](https://github.com/sg2002/lilypond-cheatsheets/blob/master/guitar-standard.pdf?raw=true) for 24 fret guitar in standard tuning.
 
 Usage
 ------------------------
